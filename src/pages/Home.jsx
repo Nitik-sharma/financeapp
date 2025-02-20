@@ -12,9 +12,7 @@ const Home = () => {
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero Section */}
       <header className="bg-blue-600 text-white py-16 text-center px-4">
-       
-          <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
-       
+        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
 
         <h1 className="text-4xl md:text-5xl font-bold">
           Smart & Secure Loan Management
@@ -151,12 +149,26 @@ const Home = () => {
           </Link>
         </div>
         <div className="text-gray-400 mt-4">
-          <p>
-            📍 Address: E-50 2nd Floor Multan Nagar Paschim Vihar New
-            Delhi-110056
-          </p>
+          <Link
+            to={
+              "https://www.google.com/maps/search/E-50+2nd+Floor+Multan+Nagar+Paschim+Vihar+New+Delhi-110056/@28.6779492,77.1040466,17z/data=!3m1!4b1!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+            }
+          >
+            {" "}
+            <p>
+              📍 Address: E-50 2nd Floor Multan Nagar Paschim Vihar New
+              Delhi-110056
+            </p>
+          </Link>
           <p>📞 Phone: 7065650077</p>
-          <p>✉️ Email:geetenterprides0078@gmail.com</p>
+          <Link
+            to={
+              "https://mail.google.com/mail/u/0/#search/geetenterprides0078%40gmail.com"
+            }
+          >
+            {" "}
+            <p>✉️ Email:geetenterprides0078@gmail.com</p>
+          </Link>
         </div>
         <p className="text-gray-500 mt-4">&copy;geetenterprises</p>
       </footer>
