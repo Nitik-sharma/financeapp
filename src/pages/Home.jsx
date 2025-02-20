@@ -1,0 +1,155 @@
+import React, { useState } from "react";
+import Navbar from "./Navbar";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ApplyLoan from "./Apply";
+
+const Home = () => {
+     
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-900">
+      {/* Hero Section */}
+      <header className="bg-blue-600 text-white py-16 text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
+
+        <h1 className="text-4xl md:text-5xl font-bold">
+          Smart & Secure Loan Management
+        </h1>
+        <p className="mt-4 text-lg md:text-xl">
+          Easily track loans, manage repayments, and stay financially organized.
+        </p>
+        <div className="mt-6 flex flex-col md:flex-row justify-center gap-4">
+          <Link to="/apply-loan">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+              Apply for Loan
+            </button>
+          </Link>
+          <Link to="/lend-money">
+            {" "}
+            <button className="bg-gray-200 text-blue-600 px-6 py-2 rounded-lg font-semibold">
+              Lend Money
+            </button>
+          </Link>
+        </div>
+      </header>
+
+      {/* Features Section */}
+      <section className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold">Why Choose Us?</h2>
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: "Fast Loan Applications",
+              desc: "Apply for a loan in just a few clicks.",
+            },
+            {
+              title: "Track Your Repayments",
+              desc: "Get automated reminders and stay updated.",
+            },
+            {
+              title: "Secure & Transparent",
+              desc: "All transactions are safe and well-documented.",
+            },
+            {
+              title: "Easy Loan Management",
+              desc: "Approve or reject loan requests easily.",
+            },
+          ].map((feature, index) => (
+            <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
+              <h3 className="font-semibold text-xl">{feature.title}</h3>
+              <p className="text-gray-600 mt-2">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="bg-gray-200 py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold">How It Works</h2>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            {
+              title: "For Borrowers",
+              steps: "1️⃣ Sign Up & Apply\n2️⃣ Get Approved\n3️⃣ Repay Easily",
+            },
+            {
+              title: "For Lenders",
+              steps:
+                "1️⃣ Register & Browse Requests\n2️⃣ Approve Loans\n3️⃣ Receive Repayments",
+            },
+          ].map((item, index) => (
+            <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
+              <h3 className="font-semibold text-xl">{item.title}</h3>
+              <p className="mt-2 whitespace-pre-line">{item.steps}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold">What Our Users Say</h2>
+        <div className="mt-6 flex flex-col md:flex-row gap-6 justify-center">
+          {[
+            {
+              quote:
+                "Managing my loans has never been this easy! Highly recommended.",
+              rating: "⭐⭐⭐⭐⭐",
+            },
+            {
+              quote:
+                "I can now track all my repayments in one place. Amazing tool!",
+              rating: "⭐⭐⭐⭐⭐",
+            },
+          ].map((testimonial, index) => (
+            <div
+              key={index}
+              className="p-6 bg-white shadow-lg rounded-lg max-w-sm"
+            >
+              <p className="italic">"{testimonial.quote}"</p>
+              <p className="mt-2 font-semibold">{testimonial.rating}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <footer className="bg-blue-600 text-white py-16 text-center px-4">
+        <h2 className="text-3xl font-bold">Start Managing Your Loans Today!</h2>
+        <Link to="/sign-up">
+          {" "}
+          <button className="mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold">
+            Sign Up Now
+          </button>
+        </Link>
+      </footer>
+      {/* Social & Contact Footer */}
+      <footer className="bg-gray-900 text-white py-8 text-center px-4">
+        <div className="flex justify-center space-x-6 mb-4">
+          <a href="#" className="text-gray-400 hover:text-white">
+            Facebook
+          </a>
+          <a href="#" className="text-gray-400 hover:text-white">
+            Twitter
+          </a>
+          <a href="#" className="text-gray-400 hover:text-white">
+            Instagram
+          </a>
+          <a href="#" className="text-gray-400 hover:text-white">
+            LinkedIn
+          </a>
+        </div>
+        <div className="text-gray-400 mt-4">
+          <p>
+            📍 Address: E-50 2nd Floor Multan Nagar Paschim Vihar New
+            Delhi-110056
+          </p>
+          <p>📞 Phone: 7065650077</p>
+          <p>✉️ Email:geetenterprides0078@gmail.com</p>
+        </div>
+        <p className="text-gray-500 mt-4">&copy;geetenterprises</p>
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
