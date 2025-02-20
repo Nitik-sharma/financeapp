@@ -8,7 +8,7 @@ const Navbar = () => {
   
     <nav className="bg-blue-600 text-white p-4 shadow-md fixed w-full top-0 z-10">
       <div className="container mx-auto flex justify-between items-center max-w-screen-lg">
-        <h1 className="text-xl font-bold">Geet Interprise</h1>
+        <h1 className="text-xl font-bold mr-4">Geet Interprise</h1>
         
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6">
@@ -20,7 +20,7 @@ const Navbar = () => {
         </ul>
         
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-white text-2xl ml-auto" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-white text-2xl mr-6" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </button>
       </div>
