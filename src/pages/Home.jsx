@@ -7,6 +7,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
+  const handleCall = () => {
+    window.location.href = "tel:7065650077";
+  };
+
+
      
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
@@ -160,7 +165,14 @@ const Home = () => {
               Delhi-110056
             </p>
           </Link>
-          <p>📞 Phone: 7065650077</p>
+
+          <p
+            onClick={handleCall}
+            className="text-blue-500 hover:underline cursor-pointer"
+          >
+            📞 Phone: 7065650077
+          </p>
+
           <Link
             to={
               "https://mail.google.com/mail/u/0/#search/geetenterprises0078%40gmail.com?compose=new"
