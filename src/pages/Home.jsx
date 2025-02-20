@@ -163,11 +163,11 @@ const Home = () => {
           <p>📞 Phone: 7065650077</p>
           <Link
             to={
-              "https://mail.google.com/mail/u/0/#search/geetenterprides0078%40gmail.com"
+              "https://mail.google.com/mail/u/0/#search/geetenterprises0078%40gmail.com?compose=new"
             }
           >
             {" "}
-            <p>✉️ Email:geetenterprides0078@gmail.com</p>
+            <p>✉️ Email:geetenterprises0078@gmail.com</p>
           </Link>
         </div>
         <p className="text-gray-500 mt-4">&copy;geetenterprises</p>
