@@ -20,7 +20,7 @@ const Home = () => {
         <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
 
         <h1 className="text-4xl md:text-5xl font-bold">
-          Smart & Secure Loan Management
+          Private Funding  & PDC Based Business Loan
         </h1>
         <p className="mt-4 text-lg md:text-xl">
           Easily track loans, manage repayments, and stay financially organized.
