@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="bg-blue-600 text-white p-4 shadow-md fixed w-full top-0 z-10">
       <div className="container mx-auto flex justify-between items-center max-w-screen-lg">
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Geet Enterprises Logo" className="h-12 w-auto" />
+          <img src={logo} alt="Geet Enterprises Logo" className="h-18 w-auto" />
         </Link>
 
         {/* Desktop Menu */}
