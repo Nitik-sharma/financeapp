@@ -6,7 +6,7 @@ import HowItWorks from "./pages/Work";
 import Testimonials from "./pages/Testinomial";
 import Contact from "./pages/Contact";
 import "./App.css";
-import ApplyLoan from "./pages/Apply";
+import ApplyLoan from "./pages/ApplyLoan";
 import LendMoney from "./pages/LendMoney";
 import SignUp from "./pages/SignUp";
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<Features />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
-        <Route path="/apply-loan" element={<ApplyLoan />} />
+        <Route path="/apply-loan" element={ <ApplyLoan/>} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/lend-money" element={<LendMoney />} />

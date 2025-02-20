@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import ApplyLoan from "./Apply";
+
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
      
@@ -9,7 +12,9 @@ const Home = () => {
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero Section */}
       <header className="bg-blue-600 text-white py-16 text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
+       
+          <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
+       
 
         <h1 className="text-4xl md:text-5xl font-bold">
           Smart & Secure Loan Management
@@ -18,7 +23,7 @@ const Home = () => {
           Easily track loans, manage repayments, and stay financially organized.
         </p>
         <div className="mt-6 flex flex-col md:flex-row justify-center gap-4">
-          <Link to="/apply-loan">
+          <Link to={"/apply-loan"}>
             <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
               Apply for Loan
             </button>
@@ -114,29 +119,36 @@ const Home = () => {
 
       {/* Call to Action Section */}
       <footer className="bg-blue-600 text-white py-16 text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
         <h2 className="text-3xl font-bold">Start Managing Your Loans Today!</h2>
-        <Link to="/sign-up">
-          {" "}
-          <button className="mt-6 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold">
-            Sign Up Now
-          </button>
-        </Link>
       </footer>
       {/* Social & Contact Footer */}
       <footer className="bg-gray-900 text-white py-8 text-center px-4">
         <div className="flex justify-center space-x-6 mb-4">
-          <a href="#" className="text-gray-400 hover:text-white">
+          {/* <a href="#" className="text-gray-400 hover:text-white">
             Facebook
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            Twitter
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            Instagram
-          </a>
-          <a href="#" className="text-gray-400 hover:text-white">
-            LinkedIn
-          </a>
+          </a> */}
+          <Link
+            to={"https://www.facebook.com/share/15XqJjpp3V/"}
+            className="text-gray-400 hover:text-cyan-400"
+          >
+            <FaFacebookF size={30} />
+          </Link>
+
+          <Link
+            to={
+              "https://www.instagram.com/geet_finance?igsh=MWhraHI1aHlsY3lubw=="
+            }
+            className="text-gray-400 hover:text-cyan-400"
+          >
+            <FaInstagram size={30} />
+          </Link>
+          <Link
+            to={"https://wa.me/message/N7N34R6SHS47G1"}
+            className="text-gray-400 hover:text-cyan-400"
+          >
+            <FaWhatsapp size={30} />
+          </Link>
         </div>
         <div className="text-gray-400 mt-4">
           <p>

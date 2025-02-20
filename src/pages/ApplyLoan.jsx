@@ -1,7 +1,11 @@
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+
 const ApplyLoan = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    mobile: "",
     amount: "",
     duration: "",
     reason: "",
@@ -13,8 +17,37 @@ const ApplyLoan = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Loan application submitted successfully!");
-    setFormData({ name: "", email: "", amount: "", duration: "", reason: "" });
+
+    const serviceId = "service_7xe2g22";
+    const templateId = "template_icxk279";
+    const publicKey = "HbyfZ0Cxr16Hm-rct";
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      mobile: formData.mobile,
+      amount: formData.amount,
+      duration: formData.duration,
+      reason: formData.reason,
+    };
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then(() => {
+        alert("Loan application submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          mobile: "",
+          amount: "",
+          duration: "",
+          reason: "",
+        });
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        alert("Failed to submit the loan application.");
+      });
   };
 
   return (
@@ -38,6 +71,17 @@ const ApplyLoan = () => {
           onChange={handleChange}
           className="w-full p-2 mb-3 border rounded"
           required
+        />
+        <input
+          type="tel"
+          name="mobile"
+          placeholder="Mobile Number"
+          value={formData.mobile}
+          onChange={handleChange}
+          className="w-full p-2 mb-3 border rounded"
+          required
+          pattern="[0-9]{10}"
+          maxLength="10"
         />
         <input
           type="number"
@@ -75,4 +119,5 @@ const ApplyLoan = () => {
     </div>
   );
 };
+
 export default ApplyLoan;
