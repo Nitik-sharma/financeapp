@@ -20,13 +20,14 @@ const LendMoney = () => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceId = "service_7xe2g22"; // Replace with your EmailJS Service ID
-    const templateId = "template_icxk279"; // Replace with your EmailJS Template ID
-    const publicKey = "HbyfZ0Cxr16Hm-rct"; // Replace with your EmailJS Public Key
-    const ownerEmail = "owner@example.com"; // Replace with the website owner's email
+    const serviceId = "service_3khbpmn"; // Replace with your EmailJS Service ID
+    const templateId = "template_cnd2rga"; // Replace with your EmailJS Template ID
+    const userTemplateId = "template_7tirrjt";//Replace user template id
+    const publicKey = "aTJyr1wSlGUp-6GVo"; // Replace with your EmailJS Public Key
+    const ownerEmail = "nitiksharma445@gmail.com"; // Replace with the website owner's email
 
     try {
-      // Send email to website owner with lending details
+      // 1️⃣ Send email to website owner with lending details
       await emailjs.send(
         serviceId,
         templateId,
@@ -37,23 +38,22 @@ const LendMoney = () => {
           lending_amount: formData.amount,
           interest_rate: formData.interestRate,
           duration: formData.duration,
-          to_email: ownerEmail, // Owner's email
+          to_email: ownerEmail, // Sending email to the website owner
         },
         publicKey
       );
 
-      // Send confirmation email to user
+      // 2️⃣ Send confirmation email to the user
       await emailjs.send(
         serviceId,
-        templateId,
+        userTemplateId,
         {
           user_name: formData.name,
-          user_email: formData.email,
-          user_mobile: formData.mobile,
+          user_email: formData.email, // This is the user's email
           lending_amount: formData.amount,
           interest_rate: formData.interestRate,
           duration: formData.duration,
-          to_email: formData.email, // User's email
+          to_email: formData.email,  // Sending email to the user
           message: `Thank you, ${formData.name}! Your lending offer of ₹${formData.amount} at ${formData.interestRate}% for ${formData.duration} months has been received.`,
         },
         publicKey
@@ -106,6 +106,8 @@ const LendMoney = () => {
           onChange={handleChange}
           className="w-full p-2 mb-3 border rounded"
           required
+          pattern="[0-9]{10}"
+          maxLength="10"
         />
         <input
           type="number"

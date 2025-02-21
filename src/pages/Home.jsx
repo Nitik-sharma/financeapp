@@ -10,13 +10,17 @@ const Home = () => {
   const handleCall = () => {
     window.location.href = "tel:7065650077";
   };
+  const handleMail = () => {
+    window.Location.href =
+      "https://mail.google.com/mail/u/0/#search/geetenterprises0078%40gmail.com?compose=new";
+  }
 
 
      
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900">
+    <div className="min-h-screen bg-gray-100 text-gray-900 ">
       {/* Hero Section */}
-      <header className="bg-blue-600 text-white py-16 text-center px-4">
+      <header className="bg-blue-600 text-white py-30 text-center px-4">
         <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
 
         <h1 className="text-4xl md:text-5xl font-bold">
