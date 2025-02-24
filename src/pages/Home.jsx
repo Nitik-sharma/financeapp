@@ -24,7 +24,7 @@ const Home = () => {
         <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
 
         <h1 className="text-4xl md:text-5xl font-bold">
-          Private Funding  & PDC Based Business Loan
+          Private Funding & PDC Based Business Loan
         </h1>
         <p className="mt-4 text-lg md:text-xl">
           Easily track loans, manage repayments, and stay financially organized.
@@ -35,7 +35,6 @@ const Home = () => {
               Apply for Loan
             </button>
           </Link>
-       
         </div>
       </header>
 
@@ -181,7 +180,15 @@ const Home = () => {
             <p>✉️ Email:geetenterprises0078@gmail.com</p>
           </Link>
         </div>
-        <p className="text-gray-500 mt-4">&copy;geetenterprises</p>
+        <div className="bg-[#4A1A12] text-center py-4 text-white relative">
+         
+          <p className="text-sm">
+            Copyright 2024 | Powered by{" "}
+            <span className="text-blue-500">
+              <Link to={""}> Geet Enterprises</Link>
+            </span>{" "}
+          </p>
+        </div>
       </footer>
     </div>
   );
