@@ -183,7 +183,7 @@ const Home = () => {
         <div className="bg-[#4A1A12] text-center py-4 text-white relative">
          
           <p className="text-sm">
-            Copyright 2024 | Powered by{" "}
+            Copyright 2025 | Powered by{" "}
             <span className="text-blue-500">
               <Link to={""}> Geet Enterprises</Link>
             </span>{" "}
