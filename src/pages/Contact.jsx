@@ -17,10 +17,10 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    const serviceId = "service_7xe2g22"; // Replace with your actual service ID
-    const templateId = "template_pxv64mm"; // Replace with your actual template ID
-    const publicKey = "HbyfZ0Cxr16Hm-rct"; // Replace with your actual public key
-    const ownerEmail = "nitiksharma445@gmail.com"; // Replace with the owner's email
+    const serviceId = "service_tjwuiqp"; // Replace with your actual service ID
+    const templateId = "template_ul53awj"; // Replace with your actual template ID
+    const publicKey = "mYUQZNYDnR8wJQkeg"; // Replace with your actual public key
+    const ownerEmail = "geetenterprises0078@gmail.com"; // Replace with the owner's email
 
     try {
       // Send email to the owner

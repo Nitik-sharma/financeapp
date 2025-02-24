@@ -15,40 +15,45 @@ const ApplyLoan = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-    const serviceId = "service_7xe2g22";
-    const templateId = "template_icxk279";
-    const publicKey = "HbyfZ0Cxr16Hm-rct";
+   const serviceId = "service_tjwuiqp";
+   const templateId = "template_j4usx1t";
+   const publicKey = "mYUQZNYDnR8wJQkeg";
 
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      mobile: formData.mobile,
-      amount: formData.amount,
-      duration: formData.duration,
-      reason: formData.reason,
-    };
+   const templateParams = {
+     name: formData.name,
+     email: formData.email,
+     mobile: formData.mobile,
+     amount: formData.amount,
+     duration: formData.duration,
+     reason: formData.reason,
+   };
 
-    emailjs
-      .send(serviceId, templateId, templateParams, publicKey)
-      .then(() => {
-        alert("Loan application submitted successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          mobile: "",
-          amount: "",
-          duration: "",
-          reason: "",
-        });
-      })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-        alert("Failed to submit the loan application.");
-      });
-  };
+   try {
+     const response = await emailjs.send(
+       serviceId,
+       templateId,
+       templateParams,
+       publicKey
+     );
+     console.log("Email sent successfully:", response);
+     alert("Loan application submitted successfully!");
+     setFormData({
+       name: "",
+       email: "",
+       mobile: "",
+       amount: "",
+       duration: "",
+       reason: "",
+     });
+   } catch (error) {
+     console.error("Error sending email:", error);
+     alert("Failed to submit the loan application.");
+   }
+ };
+
 
   return (
     <div className="max-w-lg mx-auto mt-20 p-6 bg-white shadow-md rounded-md">

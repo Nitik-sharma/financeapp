@@ -7,7 +7,7 @@ import Testimonials from "./pages/Testinomial";
 import Contact from "./pages/Contact";
 import "./App.css";
 import ApplyLoan from "./pages/ApplyLoan";
-import LendMoney from "./pages/LendMoney";
+
 import SignUp from "./pages/SignUp";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/apply-loan" element={ <ApplyLoan/>} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/lend-money" element={<LendMoney />} />
+        
         <Route path="/sign-up" element={<SignUp />} />
       </Routes>
     </Router>

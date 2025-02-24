@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { FaFacebookF } from "react-icons/fa";
@@ -35,12 +35,7 @@ const Home = () => {
               Apply for Loan
             </button>
           </Link>
-          <Link to="/lend-money">
-            {" "}
-            <button className="bg-gray-200 text-blue-600 px-6 py-2 rounded-lg font-semibold">
-              Lend Money
-            </button>
-          </Link>
+       
         </div>
       </header>
 
