@@ -1,23 +1,33 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from '../assets/image/logo.jpeg'
+import logo from "../assets/image/logo.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-blue-600 text-white p-4 shadow-md fixed w-full top-0 z-10">
+    <nav
+      className="bg-blue-600 text-white p-4 shadow-md fixed w-full top-0 z-10"
+      aria-label="Main Navigation"
+    >
       <div className="container mx-auto flex justify-between items-center max-w-screen-lg">
-        <Link to="/" className="flex items-center">
-          <img src={logo} alt="Geet Enterprises Logo" className="h-18 w-auto" />
+        {/* Logo */}
+        <Link to="/" className="flex items-center" title="Go to Home Page">
+          <img
+            src={logo}
+            alt="Geet Enterprises Logo"
+            className="h-18 w-auto"
+            loading="lazy"
+          />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-6">
           <li>
             <Link
               to="/"
               className="hover:underline hover:text-yellow-300 transition-colors"
+              title="Home"
             >
               Home
             </Link>
@@ -26,6 +36,7 @@ const Navbar = () => {
             <Link
               to="/features"
               className="hover:underline hover:text-yellow-300 transition-colors"
+              title="Features"
             >
               Features
             </Link>
@@ -34,6 +45,7 @@ const Navbar = () => {
             <Link
               to="/how-it-works"
               className="hover:underline hover:text-yellow-300 transition-colors"
+              title="How It Works"
             >
               How It Works
             </Link>
@@ -42,6 +54,7 @@ const Navbar = () => {
             <Link
               to="/testimonials"
               className="hover:underline hover:text-yellow-300 transition-colors"
+              title="Testimonials"
             >
               Testimonials
             </Link>
@@ -50,6 +63,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               className="hover:underline hover:text-yellow-300 transition-colors"
+              title="Contact Us"
             >
               Contact
             </Link>
@@ -58,8 +72,9 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white text-2xl mr-6"
+          className="md:hidden text-white text-2xl mr-6 focus:outline-none focus:ring-2 focus:ring-yellow-300"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
         >
           ☰
         </button>
@@ -72,6 +87,7 @@ const Navbar = () => {
             <Link
               to="/"
               className="block p-2 hover:bg-blue-700"
+              title="Home"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -81,6 +97,7 @@ const Navbar = () => {
             <Link
               to="/features"
               className="block p-2 hover:bg-blue-700"
+              title="Features"
               onClick={() => setIsOpen(false)}
             >
               Features
@@ -90,6 +107,7 @@ const Navbar = () => {
             <Link
               to="/how-it-works"
               className="block p-2 hover:bg-blue-700"
+              title="How It Works"
               onClick={() => setIsOpen(false)}
             >
               How It Works
@@ -99,6 +117,7 @@ const Navbar = () => {
             <Link
               to="/testimonials"
               className="block p-2 hover:bg-blue-700"
+              title="Testimonials"
               onClick={() => setIsOpen(false)}
             >
               Testimonials
@@ -108,6 +127,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               className="block p-2 hover:bg-blue-700"
+              title="Contact Us"
               onClick={() => setIsOpen(false)}
             >
               Contact
@@ -118,4 +138,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

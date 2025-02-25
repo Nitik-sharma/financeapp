@@ -1,37 +1,28 @@
 import React, { useState } from "react";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
   const handleCall = () => {
-    window.location.href = "tel:7065650077";
+    window.location.href = "tel:+917065650077";
   };
-  const handleMail = () => {
-    window.Location.href =
-      "https://mail.google.com/mail/u/0/#search/geetenterprises0078%40gmail.com?compose=new";
-  }
 
-
-     
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900 ">
+    <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero Section */}
-      <header className="bg-blue-600 text-white py-30 text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
-
-        <h1 className="text-4xl md:text-5xl font-bold">
-          Private Funding & PDC Based Business Loan
+      <header className="bg-blue-600 text-white py-20 text-center px-4">
+        <h1 className="text-4xl md:text-5xl font-bold" title="Geet Enterprises">
+          Geet Enterprises
         </h1>
+        <h2 className="text-3xl md:text-4xl font-semibold mt-2">
+          Private Funding & PDC Based Business Loan
+        </h2>
         <p className="mt-4 text-lg md:text-xl">
           Easily track loans, manage repayments, and stay financially organized.
         </p>
         <div className="mt-6 flex flex-col md:flex-row justify-center gap-4">
-          <Link to={"/apply-loan"}>
-            <button className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          <Link to="/apply-loan">
+            <button className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition">
               Apply for Loan
             </button>
           </Link>
@@ -118,40 +109,33 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <footer className="bg-blue-600 text-white py-16 text-center px-4">
-        <h1 className="text-4xl md:text-5xl font-bold">Geet Enterprises</h1>
-        <h2 className="text-3xl font-bold">Start Managing Your Loans Today!</h2>
-      </footer>
-      {/* Social & Contact Footer */}
+      {/* Contact & Social Links */}
       <footer className="bg-gray-900 text-white py-8 text-center px-4">
-        <div className="flex justify-center space-x-6 mb-4">
-          {/* <a href="#" className="text-gray-400 hover:text-white">
-            Facebook
-          </a> */}
-          <Link
-            to={"https://www.facebook.com/share/15XqJjpp3V/"}
-            className="text-gray-400 hover:text-cyan-400"
+        <h2 className="text-3xl font-bold">Get in Touch</h2>
+        <div className="flex justify-center space-x-6 mt-4">
+          <a
+            href="https://www.facebook.com/share/15XqJjpp3V/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <FaFacebookF size={30} />
-          </Link>
-
-          <Link
-            to={
-              "https://www.instagram.com/geet_finance?igsh=MWhraHI1aHlsY3lubw=="
-            }
-            className="text-gray-400 hover:text-cyan-400"
+            <FaFacebookF size={30} className="hover:text-blue-400" />
+          </a>
+          <a
+            href="https://www.instagram.com/geet_finance?igsh=MWhraHI1aHlsY3lubw=="
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <FaInstagram size={30} />
-          </Link>
-          <Link
-            to={"https://wa.me/message/N7N34R6SHS47G1"}
-            className="text-gray-400 hover:text-cyan-400"
+            <FaInstagram size={30} className="hover:text-pink-400" />
+          </a>
+          <a
+            href="https://wa.me/message/N7N34R6SHS47G1"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <FaWhatsapp size={30} />
-          </Link>
+            <FaWhatsapp size={30} className="hover:text-green-400" />
+          </a>
         </div>
-        <div className="text-gray-400 mt-4">
+        <div className="mt-4 text-gray-400">
           <Link
             to={
               "https://www.google.com/maps/search/E-50+2nd+Floor+Multan+Nagar+Paschim+Vihar+New+Delhi-110056/@28.6779492,77.1040466,17z/data=!3m1!4b1!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
@@ -163,32 +147,25 @@ const Home = () => {
               Delhi-110056
             </p>
           </Link>
-
           <p
-            onClick={handleCall}
             className="text-blue-500 hover:underline cursor-pointer"
+            onClick={handleCall}
           >
-            📞 Phone: 7065650077
+            📞 Phone: +91 7065650077
           </p>
-
-          <Link
-            to={
-              "https://mail.google.com/mail/u/0/#search/geetenterprises0078%40gmail.com?compose=new"
-            }
+          <a
+            href="mailto:geetenterprises0078@gmail.com"
+            className="text-blue-500 hover:underline"
           >
-            {" "}
-            <p>✉️ Email:geetenterprises0078@gmail.com</p>
+            ✉️ Email: geetenterprises0078@gmail.com
+          </a>
+        </div>
+        <p className="text-sm mt-4">
+          Copyright © 2025 | Powered by{" "}
+          <Link to="/" className="text-blue-500">
+            Geet Enterprises
           </Link>
-        </div>
-        <div className="bg-[#4A1A12] text-center py-4 text-white relative">
-         
-          <p className="text-sm">
-            Copyright 2025 | Powered by{" "}
-            <span className="text-blue-500">
-              <Link to={""}> Geet Enterprises</Link>
-            </span>{" "}
-          </p>
-        </div>
+        </p>
       </footer>
     </div>
   );
