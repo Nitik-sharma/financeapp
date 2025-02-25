@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
@@ -24,6 +24,13 @@ const Home = () => {
           <Link to="/apply-loan">
             <button className="bg-yellow-500 text-white px-6 py-3 rounded hover:bg-yellow-600 transition">
               Apply for Loan
+            </button>
+          </Link>
+
+          {/* 🚀 New Feedback Button */}
+          <Link to="/feedback">
+            <button className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition">
+              Give Feedback
             </button>
           </Link>
         </div>
@@ -138,10 +145,9 @@ const Home = () => {
         <div className="mt-4 text-gray-400">
           <Link
             to={
-              "https://www.google.com/maps/search/E-50+2nd+Floor+Multan+Nagar+Paschim+Vihar+New+Delhi-110056/@28.6779492,77.1040466,17z/data=!3m1!4b1!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+              "https://www.google.com/maps/search/E-50+2nd+Floor+Multan+Nagar+Paschim+Vihar+New+Delhi-110056"
             }
           >
-            {" "}
             <p>
               📍 Address: E-50 2nd Floor Multan Nagar Paschim Vihar New
               Delhi-110056
