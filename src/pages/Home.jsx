@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
+  const [feedbackList, setFeedbackList] = useState([]);
+
+  useEffect(() => {
+    const storedFeedback = JSON.parse(localStorage.getItem("feedbacks")) || [];
+    setFeedbackList(storedFeedback);
+  }, []);
+
   const handleCall = () => {
     window.location.href = "tel:+917065650077";
   };
@@ -27,7 +34,6 @@ const Home = () => {
             </button>
           </Link>
 
-          {/* 🚀 New Feedback Button */}
           <Link to="/feedback">
             <button className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition">
               Give Feedback
@@ -36,83 +42,25 @@ const Home = () => {
         </div>
       </header>
 
-      {/* Features Section */}
-      <section className="py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold">Why Choose Us?</h2>
-        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: "Fast Loan Applications",
-              desc: "Apply for a loan in just a few clicks.",
-            },
-            {
-              title: "Track Your Repayments",
-              desc: "Get automated reminders and stay updated.",
-            },
-            {
-              title: "Secure & Transparent",
-              desc: "All transactions are safe and well-documented.",
-            },
-            {
-              title: "Easy Loan Management",
-              desc: "Approve or reject loan requests easily.",
-            },
-          ].map((feature, index) => (
-            <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
-              <h3 className="font-semibold text-xl">{feature.title}</h3>
-              <p className="text-gray-600 mt-2">{feature.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="bg-gray-200 py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold">How It Works</h2>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
-          {[
-            {
-              title: "For Borrowers",
-              steps: "1️⃣ Sign Up & Apply\n2️⃣ Get Approved\n3️⃣ Repay Easily",
-            },
-            {
-              title: "For Lenders",
-              steps:
-                "1️⃣ Register & Browse Requests\n2️⃣ Approve Loans\n3️⃣ Receive Repayments",
-            },
-          ].map((item, index) => (
-            <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
-              <h3 className="font-semibold text-xl">{item.title}</h3>
-              <p className="mt-2 whitespace-pre-line">{item.steps}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Testimonials Section */}
       <section className="py-16 px-6 text-center">
         <h2 className="text-3xl font-bold">What Our Users Say</h2>
-        <div className="mt-6 flex flex-col md:flex-row gap-6 justify-center">
-          {[
-            {
-              quote:
-                "Managing my loans has never been this easy! Highly recommended.",
-              rating: "⭐⭐⭐⭐⭐",
-            },
-            {
-              quote:
-                "I can now track all my repayments in one place. Amazing tool!",
-              rating: "⭐⭐⭐⭐⭐",
-            },
-          ].map((testimonial, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white shadow-lg rounded-lg max-w-sm"
-            >
-              <p className="italic">"{testimonial.quote}"</p>
-              <p className="mt-2 font-semibold">{testimonial.rating}</p>
-            </div>
-          ))}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {feedbackList.length > 0 ? (
+            feedbackList.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-6 bg-white shadow-lg rounded-lg transition hover:shadow-2xl transform hover:-translate-y-2"
+              >
+                <p className="italic text-center">"{item.feedback}"</p>
+                <p className="mt-4 font-semibold">- {item.username}</p>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500 text-center col-span-3">
+              No feedback yet. Be the first to share your experience!
+            </p>
+          )}
         </div>
       </section>
 
