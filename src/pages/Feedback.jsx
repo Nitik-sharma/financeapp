@@ -1,17 +1,11 @@
-    import React, { useState, useEffect } from "react";
+    import React, { useState } from "react";
+    import { db, collection, addDoc } from "./firebase";
 
     const FeedbackForm = () => {
       const [username, setUsername] = useState("");
       const [feedback, setFeedback] = useState("");
-      const [feedbackList, setFeedbackList] = useState([]);
 
-      useEffect(() => {
-        const storedFeedback =
-          JSON.parse(localStorage.getItem("feedbacks")) || [];
-        setFeedbackList(storedFeedback);
-      }, []);
-
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!username || !feedback) {
@@ -19,17 +13,20 @@
           return;
         }
 
-        const newFeedback = { username, feedback };
-        const updatedFeedbackList = [...feedbackList, newFeedback];
+        try {
+          await addDoc(collection(db, "feedbacks"), {
+            username,
+            feedback,
+            timestamp: new Date(),
+          });
 
-        // Save to localStorage
-        localStorage.setItem("feedbacks", JSON.stringify(updatedFeedbackList));
-        setFeedbackList(updatedFeedbackList);
-
-        // Reset form
-        setUsername("");
-        setFeedback("");
-        alert("Thank you for your feedback!");
+          // Reset form
+          setUsername("");
+          setFeedback("");
+          alert("Thank you for your feedback!");
+        } catch (error) {
+          console.error("Error submitting feedback: ", error);
+        }
       };
 
       return (
@@ -37,15 +34,9 @@
           <h2 className="text-2xl font-bold mb-4">Leave Your Feedback</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 font-semibold"
-                htmlFor="name"
-              >
-                Name
-              </label>
+              <label className="block text-gray-700 font-semibold">Name</label>
               <input
                 type="text"
-                id="name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -53,14 +44,10 @@
               />
             </div>
             <div className="mb-4">
-              <label
-                className="block text-gray-700 font-semibold"
-                htmlFor="feedback"
-              >
+              <label className="block text-gray-700 font-semibold">
                 Feedback
               </label>
               <textarea
-                id="feedback"
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
